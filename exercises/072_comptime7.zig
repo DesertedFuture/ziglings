@@ -3,6 +3,10 @@
 // loops at compile time, allowing you to do all sorts of
 // interesting things not possible at runtime. See if you can
 // figure out what this rather bonkers example prints:
+//     foo = 3 strings of length 5
+//     ~~s~~
+//     <<s>>
+//     ddsbb
 //
 //     const foo = [3]*const [5]u8{ "~{s}~", "<{s}>", "d{s}b" };
 //     comptime var i = 0;
@@ -35,11 +39,11 @@ pub fn main() void {
     // at compile time.
     //
     // Please fix this to loop once per "instruction":
-    ??? (i < instructions.len) : (???) {
+    inline while (i < instructions.len) : (i += 3) {
 
         // This gets the digit from the "instruction". Can you
         // figure out why we subtract '0' from it?
-        comptime var digit = instructions[i + 1] - '0';
+        const digit = instructions[i + 1] - '0';
 
         // This 'switch' statement contains the actual work done
         // at runtime. At first, this doesn't seem exciting...
