@@ -3,10 +3,6 @@
 // loops at compile time, allowing you to do all sorts of
 // interesting things not possible at runtime. See if you can
 // figure out what this rather bonkers example prints:
-//     foo = 3 strings of length 5
-//     ~~s~~
-//     <<s>>
-//     ddsbb
 //
 //     const foo = [3]*const [5]u8{ "~{s}~", "<{s}>", "d{s}b" };
 //     comptime var i = 0;

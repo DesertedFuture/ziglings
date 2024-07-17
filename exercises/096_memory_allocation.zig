@@ -30,9 +30,9 @@
 //         std.debug.print("slice_ptr={*}\n", .{slice_ptr});
 //     }
 
-// Instead of a simple integer or a constant sized slice, this
-// program requires a slice to be allocated that is the same size as
-// an input array.
+// Instead of a simple integer or a slice with a constant size,
+// this program requires allocating a slice that is the same size
+// as an input array.
 
 // Given a series of numbers, take the running average. In other
 // words, each item N should contain the average of the last N
@@ -64,7 +64,7 @@ pub fn main() !void {
     const allocator = arena.allocator();
 
     // allocate memory for this array
-    const avg: []f64 = ???;
+    const avg: []f64 = try allocator.alloc(f64, 5);
 
     runningAverage(arr, avg);
     std.debug.print("Running Average: ", .{});

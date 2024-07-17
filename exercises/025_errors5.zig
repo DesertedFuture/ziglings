@@ -27,6 +27,7 @@ fn addFive(n: u32) MyNumberError!u32 {
     // Please use a "try" statement rather than a "catch".
     //
     const x = try detect(n);
+
     return x + 5;
 }
 

@@ -46,7 +46,6 @@ pub fn main() void {
     count += 1;
     const a3: [count]u8 = .{'C'} ** count;
 
-    // @compileLog("Count at compile time: ", count);
     count += 1;
     const a4: [count]u8 = .{'D'} ** count;
 

@@ -318,7 +318,7 @@ const HermitsNotebook = struct {
         // in our map since every Place is reachable by every other
         // Place.)
         if (destination_entry == null) {
-            errdefer TripError.Unreachable;
+            return TripError.Unreachable;
         }
 
         // Variables hold the entry we're currently examining and an
